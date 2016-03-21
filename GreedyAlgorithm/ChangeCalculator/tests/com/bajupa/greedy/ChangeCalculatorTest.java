@@ -17,7 +17,7 @@ public class ChangeCalculatorTest {
 
     @Before
     public void setUp() {
-        changeCalculator = ChangeCalculator.HavingTheFollowingCoins(1, 2);
+        changeCalculator = ChangeCalculator.havingTheFollowingCoins(1, 2);
     }
 
     @Test
@@ -43,5 +43,11 @@ public class ChangeCalculatorTest {
     @Test
     public void testTwoDifferentFittingCoins() {
         assertEquals(Arrays.asList(2, 1), changeCalculator.getChangeList(3));
+    }
+
+    @Test
+    public void testGenerally() {
+        ChangeCalculator cc = ChangeCalculator.havingTheFollowingCoins(1, 2, 5, 10, 20, 50);
+        assertEquals(Arrays.asList(50, 10, 2, 1), cc.getChangeList(63));
     }
 }

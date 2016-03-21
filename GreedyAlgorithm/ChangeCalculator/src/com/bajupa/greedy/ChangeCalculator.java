@@ -9,7 +9,7 @@ import java.util.*;
 public class ChangeCalculator {
     private List<Integer> availableCoins;
 
-    public static ChangeCalculator HavingTheFollowingCoins(Integer... availableCoins) {
+    public static ChangeCalculator havingTheFollowingCoins(Integer... availableCoins) {
         return new ChangeCalculator(Arrays.asList(availableCoins));
     }
 
