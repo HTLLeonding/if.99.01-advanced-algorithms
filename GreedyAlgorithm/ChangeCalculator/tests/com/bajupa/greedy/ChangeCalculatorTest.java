@@ -39,4 +39,9 @@ public class ChangeCalculatorTest {
     public void testTwoFittingCoins() {
         assertEquals(Arrays.asList(2, 2), changeCalculator.getChangeList(4));
     }
+
+    @Test
+    public void testTwoDifferentFittingCoins() {
+        assertEquals(Arrays.asList(2, 1), changeCalculator.getChangeList(3));
+    }
 }
