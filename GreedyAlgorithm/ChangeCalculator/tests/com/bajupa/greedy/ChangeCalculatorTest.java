@@ -17,7 +17,7 @@ public class ChangeCalculatorTest {
 
     @Before
     public void setUp() {
-        changeCalculator = ChangeCalculator.HavingTheFollowingCoins(1, 2, 5, 10, 20, 50);
+        changeCalculator = ChangeCalculator.HavingTheFollowingCoins(1, 2);
     }
 
     @Test

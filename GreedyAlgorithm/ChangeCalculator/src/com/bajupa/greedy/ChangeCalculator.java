@@ -15,15 +15,16 @@ public class ChangeCalculator {
 
     private ChangeCalculator(List<Integer> listOfPossibleCoins) {
         this.availableCoins = listOfPossibleCoins;
+        this.availableCoins.sort((a, b)-> b - a);
     }
 
     public List<Integer> getChangeList(int amountOfChange) {
-        ListIterator<Integer> i = availableCoins.listIterator(availableCoins.size());
         List<Integer> returnedCoins = new ArrayList<>();
+        Iterator<Integer> i = availableCoins.iterator();
 
-        int currentCoin = i.previous();
-        while (i.hasPrevious() && currentCoin > amountOfChange)
-            currentCoin = i.previous();
+        int currentCoin = i.next();
+        while (i.hasNext() && currentCoin > amountOfChange)
+            currentCoin = i.next();
         while (amountOfChange > 0) {
             returnedCoins.add(currentCoin);
             amountOfChange -= currentCoin;
