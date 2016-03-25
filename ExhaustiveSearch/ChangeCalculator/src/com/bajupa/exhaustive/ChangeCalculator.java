@@ -9,9 +9,11 @@ import java.util.*;
 public class ChangeCalculator {
 
     HashSet<Integer> availableCoins;
+    List<Integer> callsWithParameters;
 
     private ChangeCalculator(List<Integer> availableCoins) {
         this.availableCoins = new HashSet<>(availableCoins);
+        callsWithParameters = new ArrayList<>();
     }
 
     public static ChangeCalculator havingTheFollowingCoins(Integer... availableCoins) {
@@ -19,10 +21,7 @@ public class ChangeCalculator {
     }
 
     public List<Integer> getChangeList(int amountToChange) {
-        return updateChangeList(amountToChange);
-    }
-
-    public List<Integer> updateChangeList(int amountToChange) {
+        callsWithParameters.add(amountToChange);
         if (availableCoins.contains(amountToChange))
             return Collections.singletonList(amountToChange);
 
@@ -30,7 +29,7 @@ public class ChangeCalculator {
 
         for (int currentCoin : availableCoins) {
             if (amountToChange - currentCoin > 0) {
-                List<Integer> candidate = new ArrayList<>(updateChangeList(amountToChange - currentCoin));
+                List<Integer> candidate = new ArrayList<>(getChangeList(amountToChange - currentCoin));
                 candidate.add(currentCoin);
                 if (candidate.size() < minimalSetOfCoins.size()) {
                     minimalSetOfCoins = candidate;
@@ -38,5 +37,11 @@ public class ChangeCalculator {
             }
         }
         return minimalSetOfCoins;
+
+
+    }
+
+    public int getNumberOfCalls() {
+        return callsWithParameters.size();
     }
 }
