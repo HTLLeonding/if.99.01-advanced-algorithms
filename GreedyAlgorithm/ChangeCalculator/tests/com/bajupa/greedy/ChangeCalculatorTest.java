@@ -49,5 +49,6 @@ public class ChangeCalculatorTest {
     public void testGenerally() {
         ChangeCalculator cc = ChangeCalculator.havingTheFollowingCoins(1, 2, 5, 10, 20, 50);
         assertEquals(Arrays.asList(50, 10, 2, 1), cc.getChangeList(63));
+        assertEquals(Arrays.asList(50, 20, 10, 5, 2, 1), cc.getChangeList(88));
     }
 }
