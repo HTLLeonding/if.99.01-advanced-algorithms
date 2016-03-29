@@ -8,8 +8,8 @@ import java.util.*;
  */
 public class ChangeCalculator {
 
-    HashSet<Integer> availableCoins;
-    List<Integer> callsWithParameters;
+    private HashSet<Integer> availableCoins;
+    private List<Integer> callsWithParameters;
 
     private ChangeCalculator(List<Integer> availableCoins) {
         this.availableCoins = new HashSet<>(availableCoins);
@@ -43,5 +43,9 @@ public class ChangeCalculator {
 
     public int getNumberOfCalls() {
         return callsWithParameters.size();
+    }
+
+    public List<Integer> getCallList() {
+        return callsWithParameters;
     }
 }

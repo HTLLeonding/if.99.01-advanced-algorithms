@@ -44,5 +44,11 @@ public class ChangeCalculatorTest {
         assertEquals(0, cc.getNumberOfCalls());
         List<Integer> coins = cc.getChangeList(63);
         assertEquals(33160648, cc.getNumberOfCalls());
+
+        List<Integer> l = cc.getCallList();
+        Collections.sort(l);
+        Collections.reverse(l);
+        for (int i = 0; i < 100; i++)
+            System.out.println(l.get(i));
     }
 }
